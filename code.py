@@ -111,5 +111,5 @@ while True:
     time.sleep(1)
     fade_to_white(1)
     print("end show")
-
+    print("test")
 
