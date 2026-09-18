@@ -58,9 +58,9 @@ def fade_RGB(brightness = 0.3, flash = False, speed = 0):
             time.sleep(0.05)
         return 0
 
-def full_Bright(stop = False, delay = 1):
+def full_bright(stop = False, delay = 1):
     # Function that fully turns on the neopixel to white
-    print("start full_Bright")
+    print("start full_bright")
     pixel.brightness = 1
     pixel.fill((255,255,255)) # white
     if stop:
@@ -71,23 +71,23 @@ def full_Bright(stop = False, delay = 1):
 
 def SOS():
     # SOS function that flashes the white morse code sequence for SOS
-    # uses the full_Bright() function to emitt light
+    # uses the full_bright() function to emitt light
     print("start SOS")
-    full_Bright(True) # does the -, long dash
-    full_Bright(True, 0.25) # 3 short dashes, .
-    full_Bright(True, 0.25)
-    full_Bright(True, 0.25)
+    full_bright(True) # does the -, long dash
+    full_bright(True, 0.25) # 3 short dashes, .
+    full_bright(True, 0.25)
+    full_bright(True, 0.25)
     time.sleep(0.75)        # need this to make 1 second delay
-    full_Bright(True)
+    full_bright(True)
     return 0
 
-def Strobe(times = 50):
-    # Strobes light periodically using full_Bright() function for white light
+def strobe(times = 50):
+    # strobes light periodically using full_bright() function for white light
     # and uses loops and sleep function to strobe
-    print("start Strobe", times)
+    print("start strobe", times)
     pixel.brightness = 1
     for i in range(0,times):
-        full_Bright() # white
+        full_bright() # white
         time.sleep(0.01)
         pixel.fill((0,0,0)) # turns off light / black
         time.sleep(0.1)
@@ -124,7 +124,7 @@ def police_lights(bright = 1, delay = 0.1, times = 25):
     for i in range(0, times):
         pixel.fill((255, 0, 0)) # red
         time.sleep(delay)
-        full_Bright() # white
+        full_bright() # white
         time.sleep(delay) 
         pixel.fill((0,0,255))  # blue
         time.sleep(delay)
@@ -152,7 +152,7 @@ def heartbeat(fade = False, steps = 50, bpm = 60):
     
 while True:
     print("start night")
-    full_Bright()           # the start of the party, all lights first turn on
+    full_bright()           # the start of the party, all lights first turn on
     time.sleep(1)
     fade_RGB(1, False, 0.01) # disco lights start being put on, party starts
     time.sleep(1)
@@ -160,7 +160,7 @@ while True:
     time.sleep(1)
     fade_to_white()         # something happenes in party, lights cut back to white
     time.sleep(1)
-    Strobe(30)              # someone is having a medical issue
+    strobe(30)              # someone is having a medical issue
     time.sleep(1)
     SOS()                   # help is needed
     time.sleep(0.5)
