@@ -164,7 +164,7 @@ while True:
     time.sleep(1)
     SOS()                   # help is needed
     time.sleep(0.5)
-    heartbeat(True, 5, 170)  # their heartbeat is too high and irregular, starts fading, someone is dying
+    heartbeat(True, 10, 170)  # their heartbeat is too high and irregular, starts fading, someone is dying
     time.sleep(0.5)
     police_lights(times=10)  # police are called and the party stops
     time.sleep(0.5)
