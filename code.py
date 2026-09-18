@@ -58,37 +58,27 @@ def fade_RGB(brightness = 0.3, flash = False, speed = 0):
             time.sleep(0.05)
         return 0
 
-def full_Bright():
+def full_Bright(stop = False, delay = 1):
     # Function that fully turns on the neopixel to white
     print("start full_Bright")
     pixel.brightness = 1
     pixel.fill((255,255,255)) # white
+    if stop:
+        time.sleep(delay)
+        pixel.fill((0,0,0))
+        time.sleep(delay)
     return 0
 
 def SOS():
     # SOS function that flashes the white morse code sequence for SOS
     # uses the full_Bright() function to emitt light
     print("start SOS")
-    full_Bright()
-    time.sleep(1) # For - dash, long pulse
-    pixel.fill((0,0,0))
-    time.sleep(0.25) # For . dot, short pulse
-    full_Bright()
-    time.sleep(0.25)
-    pixel.fill((0,0,0))
-    time.sleep(0.25)
-    full_Bright()
-    time.sleep(0.25)
-    pixel.fill((0,0,0))
-    time.sleep(0.25)
-    full_Bright()
-    time.sleep(0.25)
-    pixel.fill((0,0,0))
-    time.sleep(1)
-    full_Bright()
-    time.sleep(1)
-    pixel.fill((0,0,0))
-    time.sleep(1)
+    full_Bright(True) # does the -, long dash
+    full_Bright(True, 0.25) # 3 short dashes, .
+    full_Bright(True, 0.25)
+    full_Bright(True, 0.25)
+    time.sleep(0.75)        # need this to make 1 second delay
+    full_Bright(True)
     return 0
 
 def Strobe(times = 50):
